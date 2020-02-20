@@ -1,12 +1,30 @@
 #!/bin/sh
- 
+#
+#	MOTD for Raspian
+#
+#	This was tested on model 3B+
+#
+#	for better understanding visit: https://ownyourbits.com/2017/04/05/customize-your-motd-login-message-in-debian-and-ubuntu/
+#
+#	GitHub repository
+#	https://github.com/MrCaringi/motd.git 
+#
+#	For Weather API locations
+#	https://pastebin.com/dbtemx5F
+#
+#	Packages required
+#	figlet	lolcat	curl	cut
+#
+#	Gracias Pablo, eres un sol
+#
+
 upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"
 secs=$((${upSeconds}%60))
 mins=$((${upSeconds}/60%60))
 hours=$((${upSeconds}/3600%24))
 days=$((${upSeconds}/86400))
 UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
-temp="$(/opt/vc/bin/vcgencmd measure_temp| cut -d "=" -f 2)"
+temp="$(/opt/vc/bin/vcgencmd measure_temp | cut -d "=" -f 2)"
 host="$(cat /etc/hostname)"
 
 # get the load averages

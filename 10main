@@ -4,15 +4,16 @@
 #
 #	This was tested on model 3B+
 #
-#	for better understanding visit: https://ownyourbits.com/2017/04/05/customize-your-motd-login-message-in-debian-and-ubuntu/
+#	for better understanding visit: 
+#	https://ownyourbits.com/2017/04/05/customize-your-motd-login-message-in-debian-and-ubuntu/
 #
-#	GitHub repository
+#	GitHub repository:
 #	https://github.com/MrCaringi/motd.git 
 #
-#	For Weather API locations
+#	For Weather API locations:
 #	https://pastebin.com/dbtemx5F
 #
-#	Packages required
+#	Packages required:
 #	figlet	lolcat	curl	cut
 #
 #	Gracias Pablo, eres un sol
@@ -24,11 +25,13 @@ mins=$((${upSeconds}/60%60))
 hours=$((${upSeconds}/3600%24))
 days=$((${upSeconds}/86400))
 UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
+#	Variables nuevas
 temp="$(/opt/vc/bin/vcgencmd measure_temp | cut -d "=" -f 2)"
 host="$(cat /etc/hostname)"
 
 # get the load averages
 read one five fifteen rest < /proc/loadavg
+#	Primero, lo primero: el Hostname
 figlet $host | lolcat 
 echo "$(tput setaf 3)
 `date +"%A, %e %B %Y, %r"`

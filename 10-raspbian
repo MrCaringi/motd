@@ -27,8 +27,15 @@ days=$((${upSeconds}/86400))
 UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
 #	Variables nuevas
 temp="$(/opt/vc/bin/vcgencmd measure_temp | cut -d "=" -f 2)"
+temp="$(echo $temp | cut -c 1-4)"
 host="$(cat /etc/hostname)"
-
+#	Ruta de archivos de Temp Promedio
+ruta=/home/pi/scripts/
+m5=$(echo $ruta"m5")
+m10=$(echo $ruta"m10")
+m60=$(echo $ruta"m60")
+m480=$(echo $ruta"m480")
+average_temp=$(echo "1m $temp / 5m `cat $m5` / 10m `cat $m10` / 1h `cat $m60` / 8h `cat $m480`")
 # get the load averages
 read one five fifteen rest < /proc/loadavg
 #	Primero, lo primero: el Hostname
@@ -38,7 +45,7 @@ echo "$(tput setaf 3)
 `uname -srmo`$(tput setaf 4)
 
 Uptime.............: ${UPTIME}
-Temp...............: `echo $temp`
+Average Temp (°C)..: `echo $average_temp`
 Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2'}`kB (Total)
 Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
 Running Processes..: `ps ax | wc -l | tr -d " "`

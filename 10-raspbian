@@ -7,6 +7,9 @@
 #	for better understanding visit: 
 #	https://ownyourbits.com/2017/04/05/customize-your-motd-login-message-in-debian-and-ubuntu/
 #
+#	File Location
+#	/etc/update-motd.d/
+#
 #	GitHub repository:
 #	https://github.com/MrCaringi/motd.git 
 #

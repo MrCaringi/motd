@@ -42,7 +42,7 @@ average_temp=$(echo "1m $temp / 5m `cat $m5` / 10m `cat $m10` / 1h `cat $m60` / 
 # get the load averages
 read one five fifteen rest < /proc/loadavg
 #	Primero, lo primero: el Hostname
-figlet $host | lolcat 
+figlet $host 
 echo "$(tput setaf 3)
 `date +"%A, %e %B %Y, %r"`
 `uname -srmo`$(tput setaf 4)

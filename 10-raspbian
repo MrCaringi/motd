@@ -41,8 +41,12 @@ m480=$(echo $ruta"m480")
 average_temp=$(echo "1m $temp / 5m `cat $m5` / 10m `cat $m10` / 1h `cat $m60` / 8h `cat $m480`")
 # get the load averages
 read one five fifteen rest < /proc/loadavg
-#	Primero, lo primero: el Hostname
+
+##	Publicar el host name
+##	comentar la version de "lolcat" si no es compatible con el terminal
+#figlet $host | lolcat
 figlet $host 
+
 echo "$(tput setaf 3)
 `date +"%A, %e %B %Y, %r"`
 `uname -srmo`$(tput setaf 4)

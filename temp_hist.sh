@@ -24,22 +24,22 @@
 	m=5
 	ruta=$1m$m
 	t=$(cat $ruta)
-	echo "scale=2;($t)*(1-1/$m)+($temp)/$m" | bc > $ruta
+	echo "scale=4;($t)*(1-1/$m)+($temp)/$m" | bc > $ruta
 
 	m=10
 	ruta=$1m$m
 	t=$(cat $ruta)
-	echo "scale=2;($t)*(1-1/$m)+($temp)/$m" | bc > $ruta
+	echo "scale=4;($t)*(1-1/$m)+($temp)/$m" | bc > $ruta
 
 	m=60
 	ruta=$1m$m
 	t=$(cat $ruta)
-	echo "scale=3;($t)*(1-1/$m)+($temp)/$m" | bc > $ruta
+	echo "scale=4;($t)*(1-1/$m)+($temp)/$m" | bc > $ruta
 
 	m=480
 	ruta=$1m$m
 	t=$(cat $ruta)
-	echo "scale=3;($t)*(1-1/$m)+($temp)/$m" | bc > $ruta
+	echo "scale=4;($t)*(1-1/$m)+($temp)/$m" | bc > $ruta
 
 
 #	Comentar despues del testing

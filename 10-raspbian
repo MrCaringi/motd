@@ -47,6 +47,9 @@ read one five fifteen rest < /proc/loadavg
 #figlet $host | lolcat
 figlet $host 
 
+#Clima
+curl -s wttr.in/mty?1?q?n | tail -n 12 | head -n 10
+
 echo "$(tput setaf 3)
 `date +"%A, %e %B %Y, %r"`
 `uname -srmo`$(tput setaf 4)
@@ -57,7 +60,5 @@ Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2'}`kB (Fr
 Load Averages......: ${one}, ${five}, ${fifteen} (1, 5, 15 min)
 Running Processes..: `ps ax | wc -l | tr -d " "`
 IP Addresses.......: `ip a | grep glo | awk '{print $2}' | head -1 | cut -f1 -d/`
-
-Weather............: `curl -s "http://rss.accuweather.com/rss/liveweather_rss.asp?metric=1&locCode=NAM|MX|MX005|MONTERREY|" | sed -n '/Currently:/ s/.*: \(.*\): \([0-9]*\)\([CF]\).*/\2°\3, \1/p'`
-
+<>
 $(tput sgr0)"

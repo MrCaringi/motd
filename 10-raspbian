@@ -50,7 +50,7 @@ read one five fifteen rest < /proc/loadavg
 ##	Publicar el host name
 ##	comentar la version de "lolcat" si no es compatible con el terminal
 #figlet $host | lolcat
-figlet $host 
+figlet "            $host"
 
 #Clima
 curl -s wttr.in/mty?1?q?n | tail -n 12 | head -n 10
